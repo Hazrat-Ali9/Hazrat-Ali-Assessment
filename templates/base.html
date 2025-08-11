@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .input-field {
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus-within {
+            transform: translateY(-3px);
+        }
+        
+        .input-field:focus-within label {
+            transform: translateY(-20px) scale(0.8);
+            color: #a78bfa;
+        }
+        
+        .input-field label {
+            transition: all 0.3s ease;
+            transform-origin: left top;
+        }
+        
+        .input-field input:not(:placeholder-shown) + label {
+            transform: translateY(-20px) scale(0.8);
+            color: #a78bfa;
+        }
+      </style>
+      <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .profile-card {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .profile-pic {
+            animation: fadeIn 0.8s ease-out 0.2s both, pulse 3s ease-in-out infinite 1s;
+        }
+        
+        .info-item {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .info-item:nth-child(1) { animation-delay: 0.3s; }
+        .info-item:nth-child(2) { animation-delay: 0.4s; }
+        .info-item:nth-child(3) { animation-delay: 0.5s; }
+        .info-item:nth-child(4) { animation-delay: 0.6s; }
+        
+        .logout-btn {
+            animation: fadeIn 0.8s ease-out 0.7s both;
+        }
+        
+        .divider {
+            position: relative;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent);
+        }
+        
+        .divider::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: #a855f7;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7;
+        }
+    </style>
+</head>
+<body class='bg-gray-900'>
+    <div>
+    {% block content %}
+    
+    {% endblock  %}
+  </div>
+</body>
+</html>
