@@ -72,7 +72,7 @@ LOGOUT_REDIRECT_URL = '/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'auth',
+        'NAME': 'authentication',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',
